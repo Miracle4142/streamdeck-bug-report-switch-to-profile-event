@@ -28,33 +28,33 @@ Assuming Windows 10 and a clean installation of the Stream Deck app:
     3. Click on the first profile, then check "Make this my default profile"
     4. Click on the second profile, assign it to an application
     5. Close the Preferences  
-<img src="./images/setup.png" width="300"/>
+<img src="./Images/setup.png" width="300"/>
 
 
 2. Install this plugin
     1. Download [com.bug.switch-to-profile.streamDeckPlugin](./Release/com.bug.switch-to-profile.streamDeckPlugin) file and double-click to install it  
-    <img src="./images/install-plugin.png" width="400"/>
+    <img src="./Images/install-plugin.png" width="400"/>
     2. Accept installing preconfigured profiles  
-   <img src="./images/install-profiles.png" width="400"/>
+   <img src="./Images/install-profiles.png" width="400"/>
     3. You’ll see a new profile has been added called "Preconfigured Profile"
 
 
 
 4. Place plugin’s action
     1. Search for "switchToProfile" key in the keys list on the right  
-       <img src="./images/actions.png" width="400"/>
+       <img src="./Images/actions.png" width="400"/>
     2. Place it on one of your profiles created in step 1 (not on the preconfigured profile)
 
 
 5. Ensure Smart Profile functionality is working
     1. Close the Stream Deck app (close - not quit, not minimize). It’s needed as Smart Profiles functionality does not work when the app is open, even when minimized to taskbar.  
-       <img src="./images/close.png" width="400"/>
+       <img src="./Images/close.png" width="400"/>
     2. Start changing focus between the app you assigned to a profile on step 1.4, and your desktop or any other app (so that the default profile gets activated).
     3. Observe that profiles are switching as you change the focus (Smart Profiles are working).
 
 
 6. Press the plugin's action button you placed on step 3; the "switchToProfile" event should be sent by plugin, resulting in switching to the plugin's bundled profile called "Preconfigured Profile". The plugin's bundled profile should be activated as expected.  
-<img src="./images/profile.png" width="400"/>
+<img src="./Images/profile.png" width="400"/>
 
 
 7. Smart Profiles feature no longer works. You can focus the app or desktop - the profile will stay the same.
