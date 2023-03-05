@@ -34,8 +34,10 @@ Assuming Windows 10 and a clean installation of the Stream Deck app:
 2. Install this plugin
     1. Download [com.bug.switch-to-profile.streamDeckPlugin](./Release/com.bug.switch-to-profile.streamDeckPlugin) file and double-click to install it  
     <img src="./Images/install-plugin.png" width="400"/>
+   
     2. Accept installing preconfigured profiles  
-   <img src="./Images/install-profiles.png" width="400"/>
+    <img src="./Images/install-profiles.png" width="400"/>
+   
     3. You’ll see a new profile has been added called "Preconfigured Profile"
 
 
