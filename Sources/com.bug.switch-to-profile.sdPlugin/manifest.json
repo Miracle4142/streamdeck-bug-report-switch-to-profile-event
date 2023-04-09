@@ -1,0 +1,101 @@
+{
+  "Actions": [
+    {
+      "Icon": "actionIcon",
+      "Name": "switchToProfile",
+      "States": [
+        {
+          "Image": "actionDefaultImage"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Controllers": ["Keypad"],
+      "Tooltip": "Emit switchToProfile event with 'Preconfigured Profile' as payload",
+      "UUID": "com.bug.switch-to-profile.action"
+    },
+    {
+      "Icon": "actionIcon",
+      "Name": "switchToNull",
+      "States": [
+        {
+          "Image": "actionDefaultImage"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Controllers": ["Keypad"],
+      "Tooltip": "Emit switchToProfile event with NULL as payload",
+      "UUID": "com.bug.switch-to-null.action"
+    }
+  ],
+  "Profiles": [
+    {
+      "Name": "Preconfigured Profile",
+      "DeviceType": 0,
+      "ReadOnly": false,
+      "DontAutoSwitchWhenInstalled": true
+    },
+    {
+      "Name": "Preconfigured Profile",
+      "DeviceType": 1,
+      "ReadOnly": false,
+      "DontAutoSwitchWhenInstalled": true
+    },
+    {
+      "Name": "Preconfigured Profile",
+      "DeviceType": 2,
+      "ReadOnly": false,
+      "DontAutoSwitchWhenInstalled": true
+    },
+    {
+      "Name": "Preconfigured Profile",
+      "DeviceType": 3,
+      "ReadOnly": false,
+      "DontAutoSwitchWhenInstalled": true
+    },
+    {
+      "Name": "Preconfigured Profile",
+      "DeviceType": 4,
+      "ReadOnly": false,
+      "DontAutoSwitchWhenInstalled": true
+    },
+    {
+      "Name": "Preconfigured Profile",
+      "DeviceType": 5,
+      "ReadOnly": false,
+      "DontAutoSwitchWhenInstalled": true
+    },
+    {
+      "Name": "Preconfigured Profile",
+      "DeviceType": 6,
+      "ReadOnly": false,
+      "DontAutoSwitchWhenInstalled": true
+    },
+    {
+      "Name": "Preconfigured Profile",
+      "DeviceType": 7,
+      "ReadOnly": false,
+      "DontAutoSwitchWhenInstalled": true
+    }
+  ],
+  "SDKVersion": 2,
+  "Author": "Name",
+  "CodePath": "code.html",
+  "Description": "After sending switchToProfile event, smart profiles feature stops working",
+  "Name": "Bug in switchToProfile",
+  "Icon": "pluginIcon",
+  "Version": "0.0.1",
+  "OS": [
+    {
+        "Platform": "mac",
+        "MinimumVersion" : "10.11"
+    },
+    {
+        "Platform": "windows",
+        "MinimumVersion" : "10"
+    }
+  ],
+  "Software":
+    {
+        "MinimumVersion" : "5.0"
+    }
+}

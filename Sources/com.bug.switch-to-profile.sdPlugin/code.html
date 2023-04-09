@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>com.bug.switch-to-profile</title>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      // DistributionTool.exe -b -i Sources/com.bug.switch-to-profile.sdPlugin -o Release
+      const exampleProfileName = "Preconfigured Profile";
+      let websocket = null;
+      let pluginUUID = null;
+      let pluginInfo = null;
+
+      function switchTo(deviceId, profile) {
+        const json = {
+          event: "switchToProfile",
+          context: pluginUUID,
+          device: deviceId,
+          payload: { profile },
+        };
+
+        websocket.send(JSON.stringify(json));
+      }
+      
+      const switchToProfileAction = {
+        type: "com.bug.switch-to-profile.action",
+
+        onKeyDown: function () {
+          pluginInfo["devices"].forEach((device) => {
+            switchTo(device.id, exampleProfileName)
+          });
+        },
+      };
+
+      const switchToNullAction = {
+        type: "com.bug.switch-to-null.action",
+
+        onKeyDown: function () {
+          pluginInfo["devices"].forEach((device) => {
+            switchTo(device.id, null)
+          });
+        },
+      };
+
+
+      function connectElgatoStreamDeckSocket(
+        inPort,
+        inPluginUUID,
+        inRegisterEvent,
+        inInfo
+      ) {
+        pluginUUID = inPluginUUID;
+
+        // Open the web socket
+        websocket = new WebSocket("ws://127.0.0.1:" + inPort);
+        pluginInfo = JSON.parse(inInfo);
+
+        function registerPlugin(inPluginUUID) {
+          let json = {
+            event: inRegisterEvent,
+            uuid: inPluginUUID,
+          };
+
+          websocket.send(JSON.stringify(json));
+          console.log({ pluginUUID, pluginInfo });
+        }
+
+        websocket.onopen = function () {
+          // WebSocket is connected, send message
+          registerPlugin(pluginUUID);
+        };
+
+        websocket.onmessage = function (evt) {
+          // Received message from Stream Deck
+          const jsonObj = JSON.parse(evt.data);
+          console.log({ jsonObj })
+          const event = jsonObj["event"];
+          const action = jsonObj["action"];
+          const context = jsonObj["context"];
+
+          if (event == "keyDown") {
+            
+            if (action === switchToProfileAction.type) {
+              switchToProfileAction.onKeyDown();
+            }
+            
+            if (action === switchToNullAction.type) {
+              switchToNullAction.onKeyDown();
+            }
+          }
+        };
+
+        websocket.onclose = function () {
+          // Websocket is closed
+        };
+      }
+    </script>
+  </body>
+</html>
